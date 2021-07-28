@@ -155,7 +155,7 @@ body {
           transform-origin: center;
   position: relative;
   display: block;
-  color: var(--gray-color);
+  color: var(--white-color);
   font-weight: 500;
 }
 
@@ -299,7 +299,28 @@ body {
 .about {
   padding-top: 45rem;
   position: relative;
-  height: 130rem;
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  width: 100rem;
+  height: 70rem;
+  opacity: 0.3;
+  left: -50rem;
+  background: radial-gradient(circle, var(--orange-color) 0%, var(--red-color) 0%, transparent 60%);
+}
+
+.about::after {
+  content: "";
+  position: absolute;
+  width: 100rem;
+  height: 70rem;
+  opacity: 0.3;
+  z-index: 1;
+  right: -50rem;
+  bottom: 0;
+  background: radial-gradient(circle, var(--orange-color) 0%, var(--red-color) 0%, transparent 60%);
 }
 
 .about #sub-bg {
@@ -326,9 +347,12 @@ body {
 }
 
 .about .about__content {
+  position: relative;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 40rem;
+  z-index: 2;
 }
 
 .about .about__content .content__left {
@@ -338,9 +362,19 @@ body {
 .about .about__content .content__left h2 {
   font-family: var(--title-font);
   font-size: 4rem;
+  background: -webkit-gradient(linear, left top, right top, from(var(--white-color)), to(var(--gray-color)));
+  background: linear-gradient(to right, var(--white-color), var(--gray-color));
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 .about .about__content .content__left p {
+  background: -webkit-gradient(linear, left top, right top, from(var(--white-color)), to(var(--gray-color)));
+  background: linear-gradient(to right, var(--white-color), var(--gray-color));
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
   margin: 4rem 0;
 }
 
@@ -357,25 +391,234 @@ body {
   top: 0;
   background: -webkit-gradient(linear, left top, right top, from(var(--orange-color)), to(var(--red-color)));
   background: linear-gradient(to right, var(--orange-color), var(--red-color));
-  -webkit-box-shadow: 0 61rem 0 var(--orange-color);
-          box-shadow: 0 61rem 0 var(--orange-color);
-  -webkit-animation: animation-span-1 2s forwards ease;
-          animation: animation-span-1 2s forwards ease;
+  -webkit-box-shadow: 0.1rem 0.1rem 1.6rem var(--orange-color);
+          box-shadow: 0.1rem 0.1rem 1.6rem var(--orange-color);
+  -webkit-animation: animation-span-1 2s forwards ease-in-out;
+          animation: animation-span-1 2s forwards ease-in-out;
 }
 
-.about .about__content .content__left span:nth-of-type(1)::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 1rem;
-  -webkit-transform: translate(100rem, 30rem);
-          transform: translate(100rem, 30rem);
+.about .about__content .content__left span:nth-of-type(2) {
+  position: absolute;
+  width: 1rem;
+  left: 44%;
+  top: 0;
   background: -webkit-gradient(linear, left top, right top, from(var(--orange-color)), to(var(--red-color)));
   background: linear-gradient(to right, var(--orange-color), var(--red-color));
-  -webkit-animation: animation-span-3 1s forwards ease;
-          animation: animation-span-3 1s forwards ease;
+  -webkit-animation: animation-span-2 1s forwards ease-out;
+          animation: animation-span-2 1s forwards ease-out;
+  -webkit-box-shadow: 0.1rem 0.1rem 1.6rem var(--orange-color);
+          box-shadow: 0.1rem 0.1rem 1.6rem var(--orange-color);
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+.about .about__content .content__right {
+  position: relative;
+  width: 60rem;
+  height: 60rem;
+  opacity: 0;
+  -webkit-animation: fadeIn 2s forwards ease-in-out;
+          animation: fadeIn 2s forwards ease-in-out;
   -webkit-animation-delay: 3s;
           animation-delay: 3s;
+}
+
+.about .about__content .content__right img {
+  position: absolute;
+  width: 100%;
+  height: 65rem;
+  top: -20rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 2;
+}
+
+.about .about__content .content__right .tagret {
+  position: absolute;
+  bottom: 0rem;
+  width: 100%;
+  height: 15rem;
+  background-color: var(--second-color);
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  font-family: var(--title-font);
+}
+
+.about .about__content .content__right .tagret h2 {
+  font-size: 5rem;
+  color: var(--white-color);
+  margin-bottom: 1rem;
+}
+
+.about .about__content .content__right .tagret::before {
+  content: "";
+  position: absolute;
+  width: 0.4rem;
+  height: 100%;
+  background-color: var(--gray-color);
+  opacity: 0.5;
+}
+
+.about .about__content .content__right .activity {
+  position: absolute;
+  bottom: 0rem;
+  width: 100%;
+  height: 15rem;
+  background-color: transparent;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  font-family: var(--title-font);
+}
+
+.about .about__content .content__right .activity .content {
+  width: 14rem;
+  height: 14rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 50%;
+  border: solid 1rem transparent;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.about .about__content .content__right .activity .content:first-child {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(var(--primary-color)), to(var(--primary-color))), -webkit-gradient(linear, left bottom, left top, color-stop(30%, var(--orange-color)), color-stop(50%, var(--red-color)), color-stop(20%, var(--second-color)));
+  background-image: linear-gradient(var(--primary-color), var(--primary-color)), linear-gradient(0deg, var(--orange-color) 30%, var(--red-color) 50%, var(--second-color) 20%);
+}
+
+.about .about__content .content__right .activity .content:last-child {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(var(--primary-color)), to(var(--primary-color))), -webkit-gradient(linear, left bottom, left top, color-stop(30%, var(--orange-color)), color-stop(80%, var(--red-color)), color-stop(50%, var(--second-color)));
+  background-image: linear-gradient(var(--primary-color), var(--primary-color)), linear-gradient(0deg, var(--orange-color) 30%, var(--red-color) 80%, var(--second-color) 50%);
+}
+
+.about .about__content .content__right .activity h2 {
+  font-size: 5rem;
+  color: var(--white-color);
+  margin-bottom: 1rem;
+}
+
+.about .about__content .content__right::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 2rem;
+  -webkit-box-shadow: 0.1rem 0.1rem 1.6rem var(--orange-color), -0.1rem -0.1rem 1.6rem var(--orange-color), 0.2rem 0.2rem 1.6rem var(--orange-color), -0.2rem -0.2rem 1.6rem var(--orange-color);
+          box-shadow: 0.1rem 0.1rem 1.6rem var(--orange-color), -0.1rem -0.1rem 1.6rem var(--orange-color), 0.2rem 0.2rem 1.6rem var(--orange-color), -0.2rem -0.2rem 1.6rem var(--orange-color);
+}
+
+.about .about__content:last-child .content__right {
+  -webkit-animation: fadeIn 2s forwards ease-in-out;
+          animation: fadeIn 2s forwards ease-in-out;
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+}
+
+.about .about__content:last-child .content__left {
+  height: 100%;
+  text-align: right;
+}
+
+.about .about__content:last-child .content__left h2 {
+  font-family: var(--title-font);
+  font-size: 4rem;
+  background: -webkit-gradient(linear, right top, left top, from(var(--white-color)), to(var(--gray-color)));
+  background: linear-gradient(to left, var(--white-color), var(--gray-color));
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.about .about__content:last-child .content__left p {
+  background: -webkit-gradient(linear, right top, left top, from(var(--white-color)), to(var(--gray-color)));
+  background: linear-gradient(to left, var(--white-color), var(--gray-color));
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin: 4rem 0;
+}
+
+.about .about__content:last-child .content__left span:nth-of-type(1) {
+  position: absolute;
+  top: unset;
+  left: unset;
+  right: -30rem;
+  bottom: 0;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+
+.about .about__content:last-child .content__left span:nth-of-type(2) {
+  position: absolute;
+  left: unset;
+  right: 44%;
+  top: unset;
+  bottom: 0;
+  height: 0;
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+}
+
+.about .about__content .icon {
+  position: relative;
+  width: 15rem;
+  height: 12rem;
+  margin: 0 15rem;
+  z-index: 2;
+  background: -webkit-gradient(linear, left top, right top, from(var(--orange-color)), to(var(--red-color)));
+  background: linear-gradient(to right, var(--orange-color), var(--red-color));
+  border-radius: 50%;
+}
+
+.about .about__content .icon svg {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.about .about__content .icon svg path {
+  fill: var(--white-color);
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes animation-span-1 {
@@ -414,19 +657,6 @@ body {
   }
 }
 
-.about .about__content .content__left span:nth-of-type(2) {
-  position: absolute;
-  width: 1rem;
-  left: 44%;
-  top: 0;
-  background: -webkit-gradient(linear, left top, right top, from(var(--orange-color)), to(var(--red-color)));
-  background: linear-gradient(to right, var(--orange-color), var(--red-color));
-  -webkit-animation: animation-span-2 1s forwards ease-out;
-          animation: animation-span-2 1s forwards ease-out;
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
-}
-
 @-webkit-keyframes animation-span-2 {
   from {
     height: 0;
@@ -442,113 +672,6 @@ body {
   }
   to {
     height: 25rem;
-  }
-}
-
-.about .about__content .content__right {
-  position: relative;
-  width: 60rem;
-  height: 60rem;
-  opacity: 0;
-  -webkit-animation: fadeIn 2s forwards ease-in-out;
-          animation: fadeIn 2s forwards ease-in-out;
-  -webkit-animation-delay: 4s;
-          animation-delay: 4s;
-}
-
-.about .about__content .content__right img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: -15rem;
-  -webkit-transform: translateX(1rem);
-          transform: translateX(1rem);
-  -o-object-fit: cover;
-     object-fit: cover;
-  z-index: 2;
-  opacity: 0.8;
-}
-
-.about .about__content .content__right .tagret {
-  position: absolute;
-  bottom: -2rem;
-  width: 104%;
-  height: 17rem;
-  background-color: var(--second-color);
-  text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  font-family: var(--title-font);
-}
-
-.about .about__content .content__right .tagret h2 {
-  font-size: 5rem;
-  color: var(--white-color);
-  margin-bottom: 1rem;
-}
-
-.about .about__content .content__right .tagret::before {
-  content: "";
-  position: absolute;
-  width: 0.4rem;
-  height: 100%;
-  background-color: var(--gray-color);
-  opacity: 0.5;
-}
-
-.about .about__content .content__right::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  border: 1rem solid var(--second-color);
-  border-radius: 5rem;
-  opacity: 0.5;
-}
-
-.about .icon {
-  position: relative;
-  width: 15rem;
-  height: 15rem;
-  margin: 0 15rem;
-  background: -webkit-gradient(linear, left top, right top, from(var(--orange-color)), to(var(--red-color)));
-  background: linear-gradient(to right, var(--orange-color), var(--red-color));
-  border-radius: 50%;
-}
-
-.about .icon svg {
-  position: relative;
-  width: 8rem;
-  height: 8rem;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.about .icon svg path {
-  fill: var(--white-color);
-}
-
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 /*# sourceMappingURL=style.css.map */
