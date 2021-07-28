@@ -8,6 +8,7 @@
   position: absolute;
   width: 100%;
   z-index: 100;
+  animation: header 0.7s ease-in forwards;
   padding: 0 20rem;
   .header__content {
     height: 17rem;
@@ -23,7 +24,12 @@
       font-weight: 600;
 
       span {
+        opacity: 0;
+
+        animation: fadeIn 0.5s ease-in forwards;
+        animation-delay: 1.5s;
         padding-right: 1rem;
+        font-size: 4rem;
         background: linear-gradient(
           to right,
           var(--orange-color),
@@ -95,6 +101,7 @@
     left: 50%;
     opacity: 0.2;
     transform: translate(-50%, -30rem);
+
     background: radial-gradient(
       circle,
       var(--orange-color) 0%,
@@ -108,7 +115,11 @@
   position: relative;
   min-height: 100rem;
   overflow: hidden;
+
   .banner__content {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 1.5s;
     position: absolute;
     width: 100%;
     top: 50%;
@@ -164,14 +175,16 @@
     position: absolute;
     width: 50rem;
     height: 70rem;
-    top: 70%;
+    top: 75%;
 
     transform: translateY(-50%);
   }
   #banner-1 {
     opacity: 0.8;
     mix-blend-mode: hard-light;
-    left: 0;
+    left: -50rem;
+    animation: banner1 0.3s ease forwards;
+    animation-delay: 1s;
   }
 
   #banner-2 {
@@ -179,8 +192,10 @@
     width: 60rem;
     height: 60rem;
     mix-blend-mode: soft-light;
-    right: -12rem;
-    top: 55%;
+    right: -60rem;
+    top: 60%;
+    animation: banner2 0.3s ease forwards;
+    animation-delay: 1s;
   }
 
   svg {
@@ -261,6 +276,7 @@
   }
 
   .about__content {
+    display: none;
     position: relative;
     align-items: center;
     margin-bottom: 40rem;
@@ -456,9 +472,9 @@
     }
 
     &:last-child {
+      display: none;
       .content__right {
-        animation: fadeIn 2s forwards ease-in-out;
-        animation-delay: 6s;
+        animation-delay: 3s;
       }
 
       .content__left {
@@ -500,8 +516,6 @@
           left: unset;
           right: -30rem;
           bottom: 0;
-
-          animation-delay: 3s;
         }
 
         span:nth-of-type(2) {
@@ -511,7 +525,6 @@
           top: unset;
           bottom: 0;
           height: 0;
-          animation-delay: 5s;
         }
       }
     }
@@ -544,37 +557,5 @@
       }
     }
   }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes animation-span-1 {
-    from {
-      width: 0;
-    }
-    to {
-      width: 65.5%;
-    }
-  }
-  @keyframes animation-span-3 {
-    from {
-      width: 0;
-    }
-    to {
-      width: 15.5rem;
-    }
-  }
-  @keyframes animation-span-2 {
-    from {
-      height: 0;
-    }
-    to {
-      height: 25rem;
-    }
-  }
 }
+@import "./animation";
