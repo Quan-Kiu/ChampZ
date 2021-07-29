@@ -104,8 +104,22 @@
 
 .banner {
   position: relative;
-  min-height: 100rem;
+  min-height: 110rem;
   overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    width: 100%;
+
+    height: 0.5rem;
+
+    box-shadow: 0 -0.1rem 1.6rem var(--black-color),
+      0 -0.2rem 1.6rem var(--black-color), 0 -0.5rem 1.6rem var(--black-color),
+      0 0.1rem 1.6rem var(--black-color);
+  }
 
   .banner__content {
     opacity: 0;
@@ -166,7 +180,7 @@
     position: absolute;
     width: 50rem;
     height: 70rem;
-    top: 75%;
+    top: 58%;
 
     transform: translateY(-50%);
   }
@@ -177,35 +191,9 @@
     animation: banner1 0.3s ease forwards;
     animation-delay: 1s;
   }
-
-  #banner-2 {
-    opacity: 0.6;
-    width: 60rem;
-    height: 60rem;
-    mix-blend-mode: soft-light;
-    right: -60rem;
-    top: 60%;
-    animation: banner2 0.3s ease forwards;
-    animation-delay: 1s;
-  }
-
-  svg {
-    position: absolute;
-    bottom: 0;
-    z-index: 1;
-    .sub-bg-1 {
-      fill: var(--orange-color);
-    }
-
-    .sub-bg-2 {
-      opacity: 0.6;
-      fill: var(--red-color);
-      transform: translateY(-1rem) scale(1, 1.2);
-    }
-  }
 }
 .about {
-  padding-top: 40rem;
+  padding-top: 30rem;
   position: relative;
 
   .sub-bg:nth-of-type(2) {
@@ -214,31 +202,6 @@
   .sub-bg:nth-of-type(3) {
     right: -50rem;
     bottom: 0;
-  }
-
-  #sub-bg {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    height: 15rem;
-    background: linear-gradient(
-      to bottom,
-      var(--orange-color),
-      transparent 100%
-    );
-
-    &::before {
-      content: "";
-      opacity: 1;
-      position: absolute;
-      width: 100%;
-      top: -5.5rem;
-
-      right: 0;
-      border-top-left-radius: 100%;
-      height: 15rem;
-      background: linear-gradient(to bottom, var(--red-color), transparent);
-    }
   }
 
   .about__content[data-scroll="in"] {
@@ -295,7 +258,7 @@
   .about__content {
     position: relative;
     align-items: center;
-    margin-bottom: 40rem;
+    margin-bottom: 30rem;
     z-index: 2;
     transition: all 0.5s;
     opacity: 0;
@@ -427,7 +390,9 @@
         box-shadow: 0.1rem 0.1rem 1.6rem var(--orange-color),
           -0.1rem -0.1rem 1.6rem var(--orange-color),
           0.2rem 0.2rem 1.6rem var(--orange-color),
-          -0.2rem -0.2rem 1.6rem var(--orange-color);
+          -0.2rem -0.2rem 1.6rem var(--orange-color),
+          inset 0.1rem 0.1rem 1.6rem var(--black-color),
+          inset -0.1rem -0.1rem 1.6rem var(--black-color);
       }
     }
 
@@ -539,9 +504,11 @@
 
     .media {
       position: relative;
-      border: 1rem solid var(--second-color);
+      border: 0.5rem solid var(--second-color);
       border-radius: 10rem;
       overflow: hidden;
+      box-shadow: inset 0.1rem 0.1rem 1.6rem var(--black-color),
+        inset -0.1rem -0.1rem 1.6rem var(--black-color);
     }
     video {
       width: 80%;
