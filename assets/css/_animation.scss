@@ -6,6 +6,14 @@
     opacity: 1;
   }
 }
+@keyframes fadeIn2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
 
 @keyframes animation-span-1 {
   from {
@@ -15,20 +23,12 @@
     width: 65.5%;
   }
 }
-@keyframes animation-span-3 {
-  from {
-    width: 0;
-  }
-  to {
-    width: 15.5rem;
-  }
-}
 @keyframes animation-span-2 {
   from {
     height: 0;
   }
   to {
-    height: 25rem;
+    height: 24rem;
   }
 }
 
@@ -67,5 +67,20 @@
   }
   to {
     right: -10rem;
+  }
+}
+
+@keyframes background {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 1;
+    background: linear-gradient(
+      to right,
+      var(--orange-color),
+      var(--red-color)
+    );
   }
 }

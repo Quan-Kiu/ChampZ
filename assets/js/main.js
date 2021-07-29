@@ -1,14 +1,27 @@
-let about1 = document.querySelector("#about1");
-let about2 = document.querySelector("#about2");
-
-document.addEventListener("scroll", function () {
-  let pScroll = window.scrollY;
-
-  if (pScroll >= 300) {
-    about1.style.display = "flex";
+let video = document.getElementsByTagName("video");
+let iconVideo = document.querySelector(".video .media i");
+function remoteVideo() {
+  if (video[0].paused == true) {
+    video[0].play();
+    iconVideo.style.display = "none";
+  } else {
+    video[0].pause();
+    iconVideo.style.display = "block";
   }
+}
 
-  if (pScroll >= 1400) {
-    about2.style.display = "flex";
+window.addEventListener("scroll", reveal);
+
+function reveal() {
+  var reveals = document.querySelectorAll(".scroll");
+
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var revealtop = reveals[i].getBoundingClientRect().top;
+    var revealpoin = 150;
+
+    if (revealtop < windowHeight - revealpoin) {
+      reveals[i].setAttribute("data-scroll", "in");
+    }
   }
-});
+}

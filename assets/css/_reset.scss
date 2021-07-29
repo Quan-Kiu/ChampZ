@@ -25,6 +25,8 @@ html {
 }
 
 body {
+  scroll-behavior: smooth;
+
   font-size: 1.8rem;
 
   color: var(--gray-color);

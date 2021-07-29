@@ -41,6 +41,7 @@ html {
 }
 
 body {
+  scroll-behavior: smooth;
   font-size: 1.8rem;
   color: var(--gray-color);
   font-family: var(--primary-font);
@@ -51,7 +52,6 @@ body {
   max-width: var(--wrapper);
   margin: 0 auto;
   overflow: hidden;
-  min-height: 500rem;
   background-color: var(--primary-color);
 }
 
@@ -105,6 +105,24 @@ body {
   background: linear-gradient(to right, var(--red-color), var(--orange-color));
 }
 
+.title_sec {
+  font-family: var(--title-font);
+  font-size: 4rem;
+}
+
+.desc_sec {
+  margin: 4rem 0;
+}
+
+.sub-bg {
+  content: "";
+  position: absolute;
+  width: 100rem;
+  height: 70rem;
+  opacity: 0.3;
+  background: radial-gradient(circle, var(--orange-color) 0%, var(--red-color) 0%, transparent 60%);
+}
+
 .header {
   position: absolute;
   width: 100%;
@@ -138,10 +156,10 @@ body {
 
 .header .header__content .logo span {
   opacity: 0;
-  -webkit-animation: fadeIn 0.5s ease-in forwards;
-          animation: fadeIn 0.5s ease-in forwards;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
+  -webkit-animation: fadeIn 1s ease-in forwards;
+          animation: fadeIn 1s ease-in forwards;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
   padding-right: 1rem;
   font-size: 4rem;
   background: -webkit-gradient(linear, left top, right top, from(var(--orange-color)), to(var(--red-color)));
@@ -155,6 +173,7 @@ body {
 
 .header .header__content .menu__list .menu__item {
   position: relative;
+  opacity: 0.8;
 }
 
 .header .header__content .menu__list .menu__item a {
@@ -184,19 +203,20 @@ body {
   background: linear-gradient(to right, var(--orange-color), var(--red-color));
 }
 
+.header .header__content .menu__list .menu__item:hover {
+  opacity: 1;
+}
+
 .header .header__content .menu__list .menu__item:hover::after {
   width: 120%;
 }
 
-.header .header__content .menu__list .menu__item:hover a {
-  background: -webkit-gradient(linear, left top, right top, from(var(--orange-color)), to(var(--red-color)));
-  background: linear-gradient(to right, var(--orange-color), var(--red-color));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .header::before {
+  opacity: 0;
+  -webkit-animation: fadeIn2 1s ease-in forwards;
+          animation: fadeIn2 1s ease-in forwards;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
   content: "";
   z-index: -1;
   overflow: auto;
@@ -204,7 +224,6 @@ body {
   width: 100rem;
   height: 70rem;
   left: 50%;
-  opacity: 0.2;
   -webkit-transform: translate(-50%, -30rem);
           transform: translate(-50%, -30rem);
   background: radial-gradient(circle, var(--orange-color) 0%, var(--red-color) 0%, transparent 60%);
@@ -220,8 +239,8 @@ body {
   opacity: 0;
   -webkit-animation: fadeIn 1s ease-in forwards;
           animation: fadeIn 1s ease-in forwards;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
   position: absolute;
   width: 100%;
   top: 50%;
@@ -319,30 +338,17 @@ body {
 }
 
 .about {
-  padding-top: 45rem;
+  padding-top: 40rem;
   position: relative;
 }
 
-.about::before {
-  content: "";
-  position: absolute;
-  width: 100rem;
-  height: 70rem;
-  opacity: 0.3;
+.about .sub-bg:nth-of-type(2) {
   left: -50rem;
-  background: radial-gradient(circle, var(--orange-color) 0%, var(--red-color) 0%, transparent 60%);
 }
 
-.about::after {
-  content: "";
-  position: absolute;
-  width: 100rem;
-  height: 70rem;
-  opacity: 0.3;
-  z-index: 1;
+.about .sub-bg:nth-of-type(3) {
   right: -50rem;
   bottom: 0;
-  background: radial-gradient(circle, var(--orange-color) 0%, var(--red-color) 0%, transparent 60%);
 }
 
 .about #sub-bg {
@@ -350,9 +356,8 @@ body {
   width: 100%;
   top: 0;
   height: 15rem;
-  border-bottom-right-radius: 30%;
-  background: -webkit-gradient(linear, left top, left bottom, from(var(--orange-color)), color-stop(90%, transparent));
-  background: linear-gradient(to bottom, var(--orange-color), transparent 90%);
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--orange-color)), to(transparent));
+  background: linear-gradient(to bottom, var(--orange-color), transparent 100%);
 }
 
 .about #sub-bg::before {
@@ -368,45 +373,19 @@ body {
   background: linear-gradient(to bottom, var(--red-color), transparent);
 }
 
-.about .about__content {
-  display: none;
-  position: relative;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 40rem;
-  z-index: 2;
+.about .about__content[data-scroll="in"] {
+  opacity: 1;
+  top: 0;
 }
 
-.about .about__content .content__left {
-  width: 30%;
+.about .about__content[data-scroll="in"] .icon {
+  -webkit-animation: background 1s forwards;
+          animation: background 1s forwards;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
 }
 
-.about .about__content .content__left h2 {
-  font-family: var(--title-font);
-  font-size: 4rem;
-  background: -webkit-gradient(linear, left top, right top, from(var(--white-color)), to(var(--gray-color)));
-  background: linear-gradient(to right, var(--white-color), var(--gray-color));
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
-.about .about__content .content__left p {
-  background: -webkit-gradient(linear, left top, right top, from(var(--white-color)), to(var(--gray-color)));
-  background: linear-gradient(to right, var(--white-color), var(--gray-color));
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  margin: 4rem 0;
-}
-
-.about .about__content .content__left span {
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.about .about__content .content__left span:nth-of-type(1) {
+.about .about__content[data-scroll="in"] .content__left span:nth-of-type(1) {
   position: absolute;
   width: 0;
   height: 1rem;
@@ -420,10 +399,10 @@ body {
           animation: animation-span-1 2s forwards ease-in-out;
 }
 
-.about .about__content .content__left span:nth-of-type(2) {
+.about .about__content[data-scroll="in"] .content__left span:nth-of-type(2) {
   position: absolute;
   width: 1rem;
-  left: 44%;
+  left: 43.5%;
   top: 0;
   background: -webkit-gradient(linear, left top, right top, from(var(--orange-color)), to(var(--red-color)));
   background: linear-gradient(to right, var(--orange-color), var(--red-color));
@@ -435,15 +414,44 @@ body {
           animation-delay: 2s;
 }
 
+.about .about__content[data-scroll="in"] .content__right {
+  -webkit-animation: fadeIn 2s forwards ease;
+          animation: fadeIn 2s forwards ease;
+  -webkit-animation-delay: 3.5s;
+          animation-delay: 3.5s;
+}
+
+.about .about__content {
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 40rem;
+  z-index: 2;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  opacity: 0;
+  top: 20rem;
+}
+
+.about .about__content .content__left {
+  width: 30%;
+}
+
+.about .about__content .content__left .title_sec,
+.about .about__content .content__left .desc_sec {
+  background: -webkit-gradient(linear, left top, right top, from(var(--white-color)), to(var(--gray-color)));
+  background: linear-gradient(to right, var(--white-color), var(--gray-color));
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
 .about .about__content .content__right {
   position: relative;
   width: 60rem;
   height: 60rem;
   opacity: 0;
-  -webkit-animation: fadeIn 2s forwards ease-in-out;
-          animation: fadeIn 2s forwards ease-in-out;
-  -webkit-animation-delay: 3s;
-          animation-delay: 3s;
 }
 
 .about .about__content .content__right img {
@@ -550,36 +558,20 @@ body {
 }
 
 .about .about__content:last-child {
-  display: none;
-}
-
-.about .about__content:last-child .content__right {
-  -webkit-animation-delay: 3s;
-          animation-delay: 3s;
+  margin-bottom: 25rem;
 }
 
 .about .about__content:last-child .content__left {
-  height: 100%;
   text-align: right;
 }
 
-.about .about__content:last-child .content__left h2 {
-  font-family: var(--title-font);
-  font-size: 4rem;
-  background: -webkit-gradient(linear, right top, left top, from(var(--white-color)), to(var(--gray-color)));
-  background: linear-gradient(to left, var(--white-color), var(--gray-color));
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
+.about .about__content:last-child .content__left h2,
 .about .about__content:last-child .content__left p {
   background: -webkit-gradient(linear, right top, left top, from(var(--white-color)), to(var(--gray-color)));
   background: linear-gradient(to left, var(--white-color), var(--gray-color));
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  margin: 4rem 0;
 }
 
 .about .about__content:last-child .content__left span:nth-of-type(1) {
@@ -605,8 +597,9 @@ body {
   height: 12rem;
   margin: 0 15rem;
   z-index: 2;
-  background: -webkit-gradient(linear, left top, right top, from(var(--orange-color)), to(var(--red-color)));
-  background: linear-gradient(to right, var(--orange-color), var(--red-color));
+  opacity: 0.2;
+  background: -webkit-gradient(linear, left top, right top, from(var(--second-color)), to(var(--second-color)));
+  background: linear-gradient(to right, var(--second-color), var(--second-color));
   border-radius: 50%;
 }
 
@@ -624,6 +617,72 @@ body {
   fill: var(--white-color);
 }
 
+.video {
+  position: relative;
+  top: 20rem;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.video[data-scroll="in"] {
+  top: 0rem;
+  opacity: 1;
+}
+
+.video .sub-bg {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.video .video__content {
+  text-align: center;
+}
+
+.video .video__content .text {
+  margin: 0 auto;
+  width: 30%;
+}
+
+.video .video__content .text .title_sec {
+  background: -webkit-gradient(linear, left bottom, left top, from(var(--white-color)), to(var(--gray-color)));
+  background: linear-gradient(to top, var(--white-color), var(--gray-color));
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.video .video__content .text p {
+  color: var(--white-color);
+  margin-bottom: 10rem;
+}
+
+.video .video__content .media {
+  position: relative;
+  border: 1rem solid var(--second-color);
+  border-radius: 10rem;
+  overflow: hidden;
+}
+
+.video .video__content video {
+  width: 80%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.video .video__content i {
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 10rem;
+  color: var(--red-color);
+}
+
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -639,6 +698,24 @@ body {
   }
   to {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
+
+@keyframes fadeIn2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.2;
   }
 }
 
@@ -660,30 +737,12 @@ body {
   }
 }
 
-@-webkit-keyframes animation-span-3 {
-  from {
-    width: 0;
-  }
-  to {
-    width: 15.5rem;
-  }
-}
-
-@keyframes animation-span-3 {
-  from {
-    width: 0;
-  }
-  to {
-    width: 15.5rem;
-  }
-}
-
 @-webkit-keyframes animation-span-2 {
   from {
     height: 0;
   }
   to {
-    height: 25rem;
+    height: 24rem;
   }
 }
 
@@ -692,7 +751,7 @@ body {
     height: 0;
   }
   to {
-    height: 25rem;
+    height: 24rem;
   }
 }
 
@@ -771,6 +830,28 @@ body {
   }
   to {
     right: -10rem;
+  }
+}
+
+@-webkit-keyframes background {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+    background: -webkit-gradient(linear, left top, right top, from(var(--orange-color)), to(var(--red-color)));
+    background: linear-gradient(to right, var(--orange-color), var(--red-color));
+  }
+}
+
+@keyframes background {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+    background: -webkit-gradient(linear, left top, right top, from(var(--orange-color)), to(var(--red-color)));
+    background: linear-gradient(to right, var(--orange-color), var(--red-color));
   }
 }
 /*# sourceMappingURL=style.css.map */

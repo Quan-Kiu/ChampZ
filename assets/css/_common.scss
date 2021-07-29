@@ -1,11 +1,8 @@
 .wrapper {
   position: relative;
   max-width: var(--wrapper);
-
   margin: 0 auto;
   overflow: hidden;
-  min-height: 500rem;
-
   background-color: var(--primary-color);
 }
 
@@ -69,4 +66,29 @@
       var(--orange-color)
     );
   }
+}
+
+.title_sec {
+  font-family: var(--title-font);
+  font-size: 4rem;
+}
+
+.desc_sec {
+  margin: 4rem 0;
+}
+
+.sub-bg {
+  content: "";
+
+  position: absolute;
+  width: 100rem;
+  height: 70rem;
+  opacity: 0.3;
+
+  background: radial-gradient(
+    circle,
+    var(--orange-color) 0%,
+    var(--red-color) 0%,
+    transparent 60%
+  );
 }
