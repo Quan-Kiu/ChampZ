@@ -933,6 +933,7 @@ body {
   .about .about__content[data-scroll="in"] .content__right {
     -webkit-animation-delay: unset;
             animation-delay: unset;
+    animation: unset;
   }
   .video .video__content .text {
     width: 100%;
