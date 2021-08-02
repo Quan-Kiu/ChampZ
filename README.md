@@ -1,4 +1,4 @@
 ��# ChampZ
 
-quankiu.github.io/ChampZ
+http://quan-kiu.github.io/ChampZ
 
